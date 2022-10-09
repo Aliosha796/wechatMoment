@@ -1,5 +1,9 @@
 <template>
-  <section class="listCard" v-for="item in store.userList">
+  <section
+    class="listCard"
+    v-for="(item, index) in store.userList"
+    key="item.id"
+  >
     <div class="listWapper">
       <div class="userHeader">
         <img :src="item.header" alt="" />
@@ -15,15 +19,30 @@
         </ul>
         <section class="userFunc">
           <span>昨天</span>
-          <span>..</span>
+          <div class="userOperDisplay" v-show="item.state">
+            <span>&#xe601; 赞</span>
+            <span>&#xe602; 评论</span>
+          </div>
+          <button class="userFuncBtn" @click=""></button>
+        </section>
+        <section class="userInteract" v-show="item.like || item.comments">
+          <p class="like">
+            <span v-for="like in item.like">❤ {{ like.userName }}</span>
+          </p>
+          <p v-for="mes in item.comments">
+            {{ mes.userName }}: {{ mes.message }}
+          </p>
         </section>
       </div>
     </div>
   </section>
 </template>
 <script setup>
+import { ref } from "vue";
 import { infoList } from "../store/index";
 const store = infoList();
+
+function displayOpr(state) {}
 </script>
 <style scoped lang="scss">
 .listCard {
@@ -36,7 +55,7 @@ const store = infoList();
     display: flex;
     width: 100%;
     .userHeader {
-      width: 15%;
+      width: 20%;
       img {
         border-radius: 5px;
         width: 80%;
@@ -44,7 +63,7 @@ const store = infoList();
     }
     .userMain {
       flex: 1;
-
+      box-sizing: content-box;
       .userImage {
         margin-top: 10px;
         width: 100%;
@@ -61,8 +80,41 @@ const store = infoList();
       .userFunc {
         display: flex;
         justify-content: space-between;
+        margin-top: 10px;
+        margin-bottom: 10px;
         font-size: 10px;
         color: #ccc;
+        .userFuncBtn {
+          font-size: 20px;
+          width: 30px;
+          outline: none;
+          border: 0;
+          position: relative;
+        }
+        .userFuncBtn:focus {
+          background-color: rgb(162, 162, 162);
+        }
+        .userOperDisplay {
+          width: 50%;
+          height: 30px;
+          background-color: rgb(45, 45, 45);
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          right: 0;
+          z-index: 2;
+          font-size: 15px;
+          color: #fff;
+        }
+      }
+      .userInteract {
+        width: 100%;
+        background-color: rgb(239, 239, 239);
+        box-sizing: border-box;
+        padding: 5px;
+        .like {
+          border-bottom: 0.5px rgb(228, 228, 228) solid;
+        }
       }
     }
   }

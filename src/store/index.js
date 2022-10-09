@@ -5,7 +5,7 @@ export const infoList = defineStore("infoList", {
       userList: [
         {
           id: "001",
-          userName: "小王",
+          userName: "张三",
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "很酷，不聊天",
           image: [
@@ -20,6 +20,12 @@ export const infoList = defineStore("infoList", {
             "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           ],
           time: "",
+          like: [{ id: "002", userName: "张三" }],
+          comments: [
+            { id: "002", userName: "张三", message: "好好好好" },
+            { id: "002", userName: "Simth", message: "好好好好" },
+          ],
+          state: false,
         },
         {
           id: "002",
@@ -31,12 +37,15 @@ export const infoList = defineStore("infoList", {
             "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           ],
           time: "",
+          like: [{ id: "003", userName: "张三" }],
+          state: false,
         },
         {
           id: "003",
           userName: "云鹤",
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "测试测试测试",
+          state: false,
         },
         {
           id: "004",
@@ -44,6 +53,7 @@ export const infoList = defineStore("infoList", {
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "测试测试测试",
           time: "",
+          state: false,
         },
         {
           id: "005",
@@ -51,6 +61,7 @@ export const infoList = defineStore("infoList", {
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "测试测试测试",
           time: "",
+          state: false,
         },
         {
           id: "006",
@@ -58,10 +69,16 @@ export const infoList = defineStore("infoList", {
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "测试测试测试",
           time: "",
+          state: false,
         },
       ],
     };
   },
-  getters: {},
+  getters: {
+    changeState(state) {
+      
+      return !state.userList.state;
+    },
+  },
   actions: {},
 });

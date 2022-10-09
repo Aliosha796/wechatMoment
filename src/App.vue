@@ -29,6 +29,7 @@ import NewsCard from "./components/NewsCard.vue";
   margin: 0;
   padding: 0;
   box-sizing: content-box;
+  z-index: 1;
 }
 .banner {
   top: 0;
