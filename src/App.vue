@@ -4,9 +4,9 @@ import NewsCard from "./components/NewsCard.vue";
 
 <template>
   <div class="banner">
-    <span>返回</span>
-    <span>朋友圈</span>
-    <span>发布</span>
+    <span>&#xe600;</span>
+    <span v-show="">朋友圈</span>
+    <span>&#xe8bc;</span>
   </div>
   <section class="user">
     <div class="userBackground">
@@ -34,12 +34,17 @@ import NewsCard from "./components/NewsCard.vue";
   top: 0;
   width: 100%;
   height: 8vh;
-  background-color: rgb(234, 234, 234);
+  background-color: rgba(234, 234, 234, 0);
   position: fixed;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  box-sizing: border-box;
   z-index: 999;
+  font-size: 25px;
+  color: #fff;
 }
 .user {
   width: 100%;
