@@ -74,11 +74,10 @@ export const infoList = defineStore("infoList", {
       ],
     };
   },
-  getters: {
-    changeState(state) {
-      
-      return !state.userList.state;
+  getters: {},
+  actions: {
+    changeState(index) {
+      this.userList[index].state = !this.userList[index].state;
     },
   },
-  actions: {},
 });

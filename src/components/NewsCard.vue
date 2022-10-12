@@ -23,11 +23,11 @@
             <span>&#xe601; 赞</span>
             <span>&#xe602; 评论</span>
           </div>
-          <button class="userFuncBtn" @click=""></button>
+          <button class="userFuncBtn" @click="showLike(index)"></button>
         </section>
         <section class="userInteract" v-show="item.like || item.comments">
           <p class="like">
-            <span v-for="like in item.like">❤ {{ like.userName }}</span>
+            <span v-for="like in item.like">&#xe601; {{ like.userName }}</span>
           </p>
           <p v-for="mes in item.comments">
             {{ mes.userName }}: {{ mes.message }}
@@ -38,11 +38,12 @@
   </section>
 </template>
 <script setup>
-import { ref } from "vue";
 import { infoList } from "../store/index";
 const store = infoList();
 
-function displayOpr(state) {}
+function showLike(index) {
+  store.changeState(index);
+}
 </script>
 <style scoped lang="scss">
 .listCard {
@@ -91,17 +92,15 @@ function displayOpr(state) {}
           border: 0;
           position: relative;
         }
-        .userFuncBtn:focus {
-          background-color: rgb(162, 162, 162);
-        }
         .userOperDisplay {
           width: 50%;
           height: 30px;
           background-color: rgb(45, 45, 45);
-          display: flex;
+          position: absolute;
           justify-content: space-around;
           align-items: center;
-          right: 0;
+          right: 15vw;
+          display: flex;
           z-index: 2;
           font-size: 15px;
           color: #fff;
