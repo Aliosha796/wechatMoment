@@ -45,6 +45,9 @@ export const infoList = defineStore("infoList", {
           userName: "云鹤",
           header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
           message: "测试测试测试",
+          image: [
+            "https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/897ed2f96d5b4144bdeeab68e65c9690~tplv-k3u1fbpfcp-zoom-crop-mark:3024:3024:3024:1702.awebp?",
+          ],
           state: false,
         },
         {

@@ -11,6 +11,6 @@ import NewsCard from "../components/NewsCard.vue";
 <style lang="scss" scoped>
 .listWapper {
   width: 100%;
-  margin-top: 30px;
+  margin-top: 10vh;
 }
 </style>

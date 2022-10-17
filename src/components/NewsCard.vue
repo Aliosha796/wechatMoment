@@ -25,10 +25,7 @@
           </div>
           <button class="userFuncBtn" @click="showLike(index)"></button>
         </section>
-        <section
-          class="userInteract"
-          v-show="item.like  || item.comments "
-        >
+        <section class="userInteract" v-show="item.like || item.comments">
           <p class="like">
             <span v-for="like in item.like">&#xe601; {{ like.userName }}</span>
           </p>
@@ -71,11 +68,17 @@ function showLike(index) {
       .userImage {
         margin-top: 10px;
         width: 100%;
-        display: grid;
-        grid-gap: 5px;
-        grid-template-columns: repeat(3, 100px);
-        grid-template-rows: repeat(3, 100px);
+        // display: grid;
+        // grid-gap: 5px;
+        // grid-template-columns: repeat(3, 100px);
+        // grid-template-rows: repeat(3, 100px);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+
         li {
+          margin-left: 2px;
+          flex: 30%;
           img {
             width: 100%;
           }
