@@ -1,14 +1,44 @@
 <template>
   <section class="postBanner">
     <span class="backHome" @click="backHome()">&#xe600;</span>
-    <button class="postMessage">发表</button>
+    <button class="postMessage" @click="postMessage()">发表</button>
   </section>
   <form action="">
-    <input class="textInput" type="text" placeholder="这一刻的想法" />
+    <input
+      class="textInput"
+      v-model="message"
+      type="text"
+      placeholder="这一刻的想法"
+    />
+    <!-- <textarea v-model="message" name="" id="" cols="30" rows="10"></textarea> -->
   </form>
 </template>
 <script setup>
+import { ref } from "vue";
 import router from "../router";
+import { infoList } from "../store/index";
+const store = infoList();
+let message = ref("");
+
+const postMessage = () => {
+  const info = {
+    id: Date.now(),
+    userName: "张三",
+    header: "https://s6.jpg.cm/2022/07/01/Pqv62U.webp",
+    message: message.value,
+    image: [],
+    time: "昨天",
+    like: [],
+    comments: [],
+    state: false,
+  };
+
+  store.addMessage(info);
+
+  router.push({
+    path: "/",
+  });
+};
 
 function backHome() {
   router.push({

@@ -72,12 +72,20 @@ export const infoList = defineStore("infoList", {
           state: false,
         },
       ],
+      userInfo: {
+        userID: "Che",
+        userHeader: "",
+        userNcakground: "",
+      },
     };
   },
   getters: {},
   actions: {
     changeState(index) {
       this.userList[index].state = !this.userList[index].state;
+    },
+    addMessage(info) {
+      this.userList.unshift(info);
     },
   },
 });

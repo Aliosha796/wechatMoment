@@ -25,7 +25,10 @@
           </div>
           <button class="userFuncBtn" @click="showLike(index)"></button>
         </section>
-        <section class="userInteract" v-show="item.like || item.comments">
+        <section
+          class="userInteract"
+          v-show="item.like  || item.comments "
+        >
           <p class="like">
             <span v-for="like in item.like">&#xe601; {{ like.userName }}</span>
           </p>
